@@ -1,6 +1,6 @@
 {
   "name": "alfred-tor",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Alfred 3 workflow - Toggle Tor and Internet proxy on/off",
   "license": "MIT",
   "repository": "raisedadead/alfred-tor",
