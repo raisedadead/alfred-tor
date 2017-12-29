@@ -1,6 +1,6 @@
-# alfred-tor [![Build Status](https://travis-ci.org/raisedadead/alfred-tor.svg?branch=master)](https://travis-ci.org/raisedadead/alfred-tor)
+# alfred-tor
 
-> Alfred 3 workflow for tor
+> Alfred 3 workflow - Toggle Tor and Internet proxy on/off
 
 
 ## Install
@@ -9,12 +9,16 @@
 $ npm install --global alfred-tor
 ```
 
-*Requires [Node.js](https://nodejs.org) 4+ and the Alfred [Powerpack](https://www.alfredapp.com/powerpack/).*
+*Requires Alfred [Powerpack](https://www.alfredapp.com/powerpack/).*
 
 
 ## Usage
 
-In Alfred, type `tor`, <kbd>Enter</kbd>, and your query.
+In Alfred, type `tor`, <kbd>Enter</kbd>.
+
+
+## Credits
+https://github.com/marcelinollano/alfred-tor-workflow
 
 
 ## License

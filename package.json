@@ -1,7 +1,7 @@
 {
   "name": "alfred-tor",
-  "version": "0.0.0",
-  "description": "Alfred 3 workflow for tor",
+  "version": "0.1.0",
+  "description": "Alfred 3 workflow - Toggle Tor and Internet proxy on/off",
   "license": "MIT",
   "repository": "raisedadead/alfred-tor",
   "author": {
@@ -13,26 +13,22 @@
     "node": ">=4"
   },
   "scripts": {
-    "test": "xo && ava",
     "postinstall": "alfy-init",
     "preuninstall": "alfy-cleanup"
   },
   "files": [
-    "index.js",
     "icon.png",
     "info.plist"
   ],
   "keywords": [
     "alfred",
     "workflow",
-    "alfy"
+    "alfy",
+    "tor",
+    "network",
+    "proxy"
   ],
   "dependencies": {
     "alfy": "^0.6.0"
-  },
-  "devDependencies": {
-    "alfy-test": "^0.3.0",
-    "ava": "^0.18.0",
-    "xo": "^0.17.0"
   }
 }

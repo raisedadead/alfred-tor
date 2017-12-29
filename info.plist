@@ -2,19 +2,30 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>name</key>
-	<string>tor</string>
 	<key>bundleid</key>
-	<string>com.raisedadead.tor</string>
+	<string>com.raisedadead.alfred-tor</string>
 	<key>category</key>
-	<string>Productivity</string>
+	<string>Internet</string>
 	<key>connections</key>
 	<dict>
-		<key>7818909D-3F51-4E20-A575-CB9ED7968C07</key>
+		<key>4E98827F-1E8E-4EA9-BF37-3CB5C581F571</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>798947A4-FB1F-403B-BFB4-2A2A0E906F29</string>
+				<string>8288E32E-55F2-4C8C-BFD8-8779E53ECFCA</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>8288E32E-55F2-4C8C-BFD8-8779E53ECFCA</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>68DFA51F-D674-48C3-B9FE-3EC45CCCEFB2</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -24,10 +35,37 @@
 			</dict>
 		</array>
 	</dict>
+	<key>createdby</key>
+	<string></string>
+	<key>description</key>
+	<string></string>
 	<key>disabled</key>
 	<false/>
+	<key>name</key>
+	<string>Tor Toggle</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>tor</string>
+				<key>subtext</key>
+				<string>Toggle Tor and Internet proxy on/off</string>
+				<key>text</key>
+				<string>Tor Toggle</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>4E98827F-1E8E-4EA9-BF37-3CB5C581F571</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -36,57 +74,49 @@
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
-				<string>{query}</string>
+				<string>https://check.torproject.org</string>
 				<key>utf8</key>
 				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
-			<string>798947A4-FB1F-403B-BFB4-2A2A0E906F29</string>
+			<string>68DFA51F-D674-48C3-B9FE-3EC45CCCEFB2</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>alfredfiltersresults</key>
+				<key>concurrently</key>
 				<false/>
-				<key>argumenttype</key>
-				<integer>0</integer>
 				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string>tor</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>2</integer>
-				<key>runningsubtext</key>
-				<string>Searching...</string>
+				<integer>127</integer>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node index.js "$1"</string>
+				<string>
+				e=$(networksetup -getsocksfirewallproxy wi-fi | grep "No")
+				if [ -n "$e" ]; then
+				  echo "Turning on proxy"
+				  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.tor.plist
+				  sudo networksetup -setsocksfirewallproxy wi-fi 127.0.0.1 9050
+				  networksetup -setsocksfirewallproxystate wi-fi on
+				else
+				  echo "Turning off proxy"
+				  launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.tor.plist
+				  networksetup -setsocksfirewallproxystate wi-fi off
+				fi
+				</string>
 				<key>scriptargtype</key>
-				<integer>1</integer>
+				<integer>0</integer>
 				<key>scriptfile</key>
-				<string>index.js</string>
-				<key>subtext</key>
 				<string></string>
-				<key>title</key>
-				<string>tor</string>
 				<key>type</key>
 				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>7818909D-3F51-4E20-A575-CB9ED7968C07</string>
+			<string>8288E32E-55F2-4C8C-BFD8-8779E53ECFCA</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -95,20 +125,29 @@
 	<string></string>
 	<key>uidata</key>
 	<dict>
-		<key>798947A4-FB1F-403B-BFB4-2A2A0E906F29</key>
+		<key>4E98827F-1E8E-4EA9-BF37-3CB5C581F571</key>
 		<dict>
 			<key>xpos</key>
-			<integer>150</integer>
+			<integer>260</integer>
 			<key>ypos</key>
-			<integer>10</integer>
+			<integer>170</integer>
 		</dict>
-		<key>7818909D-3F51-4E20-A575-CB9ED7968C07</key>
+		<key>68DFA51F-D674-48C3-B9FE-3EC45CCCEFB2</key>
 		<dict>
 			<key>xpos</key>
-			<integer>10</integer>
+			<integer>670</integer>
 			<key>ypos</key>
-			<integer>10</integer>
+			<integer>170</integer>
+		</dict>
+		<key>8288E32E-55F2-4C8C-BFD8-8779E53ECFCA</key>
+		<dict>
+			<key>xpos</key>
+			<integer>460</integer>
+			<key>ypos</key>
+			<integer>170</integer>
 		</dict>
 	</dict>
+	<key>webaddress</key>
+	<string>https://git.raisedadead.com/alfred-tor</string>
 </dict>
 </plist>
