@@ -12,7 +12,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>8288E32E-55F2-4C8C-BFD8-8779E53ECFCA</string>
+				<string>78B56AD4-D7C4-4F07-B71A-F8300E3CDDDA</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -21,11 +21,13 @@
 				<false/>
 			</dict>
 		</array>
-		<key>8288E32E-55F2-4C8C-BFD8-8779E53ECFCA</key>
+		<key>617E922F-9F5B-4E76-8724-96699BB66616</key>
+		<array/>
+		<key>78B56AD4-D7C4-4F07-B71A-F8300E3CDDDA</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>68DFA51F-D674-48C3-B9FE-3EC45CCCEFB2</string>
+				<string>617E922F-9F5B-4E76-8724-96699BB66616</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -36,15 +38,57 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string></string>
+	<string>Mrugesh Mohapatra</string>
 	<key>description</key>
-	<string></string>
+	<string>Alfred 3 workflow - Toggle Tor and Internet proxy on/off</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
 	<string>Tor Toggle</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://check.torproject.org</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>617E922F-9F5B-4E76-8724-96699BB66616</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>toggle-tor.sh</string>
+				<key>type</key>
+				<integer>8</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>78B56AD4-D7C4-4F07-B71A-F8300E3CDDDA</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -66,60 +110,6 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://check.torproject.org</string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>68DFA51F-D674-48C3-B9FE-3EC45CCCEFB2</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>127</integer>
-				<key>script</key>
-				<string>
-				e=$(networksetup -getsocksfirewallproxy wi-fi | grep "No")
-				if [ -n "$e" ]; then
-				  echo "Turning on proxy"
-				  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.tor.plist
-				  sudo networksetup -setsocksfirewallproxy wi-fi 127.0.0.1 9050
-				  networksetup -setsocksfirewallproxystate wi-fi on
-				else
-				  echo "Turning off proxy"
-				  launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.tor.plist
-				  networksetup -setsocksfirewallproxystate wi-fi off
-				fi
-				</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>8288E32E-55F2-4C8C-BFD8-8779E53ECFCA</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -128,25 +118,27 @@
 		<key>4E98827F-1E8E-4EA9-BF37-3CB5C581F571</key>
 		<dict>
 			<key>xpos</key>
-			<integer>260</integer>
+			<integer>10</integer>
 			<key>ypos</key>
-			<integer>170</integer>
+			<integer>10</integer>
 		</dict>
-		<key>68DFA51F-D674-48C3-B9FE-3EC45CCCEFB2</key>
+		<key>617E922F-9F5B-4E76-8724-96699BB66616</key>
 		<dict>
 			<key>xpos</key>
-			<integer>670</integer>
+			<integer>300</integer>
 			<key>ypos</key>
-			<integer>170</integer>
+			<integer>10</integer>
 		</dict>
-		<key>8288E32E-55F2-4C8C-BFD8-8779E53ECFCA</key>
+		<key>78B56AD4-D7C4-4F07-B71A-F8300E3CDDDA</key>
 		<dict>
 			<key>xpos</key>
-			<integer>460</integer>
+			<integer>150</integer>
 			<key>ypos</key>
-			<integer>170</integer>
+			<integer>10</integer>
 		</dict>
 	</dict>
+	<key>version</key>
+	<string>2.0.0</string>
 	<key>webaddress</key>
 	<string>https://git.raisedadead.com/alfred-tor</string>
 </dict>
