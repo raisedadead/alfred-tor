@@ -18,7 +18,8 @@
   },
   "files": [
     "icon.png",
-    "info.plist"
+    "info.plist",
+    "toggle-tor.sh"
   ],
   "keywords": [
     "alfred",
