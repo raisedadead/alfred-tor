@@ -48,13 +48,13 @@
 
 ## Usage
 
-In Alfred, type `tor`, <kbd>Enter</kbd>.
+In Alfred, type `tor`, <kbd> and press Enter</kbd>.
 
 ## Credits
 
 Thanks to:
 
--   [the noun project](https://thenounproject.com/term/onion/35969) for the public domain icon.
+-   [The noun project](https://thenounproject.com/term/onion/35969) for the public domain icon.
 
 ## License
 
