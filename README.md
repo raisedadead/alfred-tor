@@ -48,7 +48,7 @@
 
 ## Usage
 
-In Alfred, type `tor`, <kbd> and press Enter</kbd>.
+In Alfred, type `tor`, and press <kbd>Enter</kbd>.
 
 ## Credits
 
